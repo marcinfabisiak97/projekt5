@@ -6,21 +6,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { removeSpaces, copy } from "./Utils";
 const FormComponent = () => {
   const [textarea, setTextarea] = useState("");
   const [noSpacesString, setNoSpacesString] = useState("");
   const [copied, setCopied] = useState(false);
-  const removeSpaces = (value: string): string => {
-    return value.replace(/\s/g, "");
-  };
+
   const handleSubmit = (event: React.FormEvent<EventTarget>) => {
     event.preventDefault();
     setNoSpacesString(removeSpaces(textarea));
   };
-  const copy = async () => {
-    await navigator.clipboard.writeText(noSpacesString);
-    await setCopied(true);
-  };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (copied) setCopied(false);
@@ -74,7 +70,10 @@ const FormComponent = () => {
           <Button
             className="col-12"
             variant="primary"
-            onClick={copy}
+            onClick={() => {
+              copy(noSpacesString);
+              setCopied(true);
+            }}
             disabled={!noSpacesString.length ? true : false}
           >
             Copy
