@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/esm/Col";
 const ModalComponent = () => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -17,7 +16,6 @@ const ModalComponent = () => {
           <Button variant="primary" onClick={handleShow}>
             Launch static backdrop modal
           </Button>
-
           <Modal
             show={show}
             onHide={handleClose}

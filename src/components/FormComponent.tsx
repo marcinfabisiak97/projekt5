@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Container from "react-bootstrap/Container";
@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const FormComponent = () => {
   const [textarea, setTextarea] = useState("");
   const [noSpacesString, setNoSpacesString] = useState("");
+  const [copied, setCopied] = useState(false);
   const removeSpaces = (value: string): string => {
     return value.replace(/\s/g, "");
   };
@@ -16,6 +17,17 @@ const FormComponent = () => {
     event.preventDefault();
     setNoSpacesString(removeSpaces(textarea));
   };
+  const copy = async () => {
+    await navigator.clipboard.writeText(noSpacesString);
+    await setCopied(true);
+  };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (copied) setCopied(false);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [copied]);
+
   return (
     <Container fluid>
       <Row>
@@ -48,6 +60,7 @@ const FormComponent = () => {
               onClick={() => {
                 setTextarea("");
                 setNoSpacesString("");
+                setCopied(false);
               }}
             >
               Reset
@@ -55,9 +68,18 @@ const FormComponent = () => {
           </Form>
         </Col>
       </Row>
-      <Row className="mt-4">
+      <Row className="mt-4 ">
         <Col sm={{ span: 8, offset: 2 }}>
-          <p>{noSpacesString}</p>
+          <p className="square border border-2 rounded">{noSpacesString}</p>
+          <Button
+            className="col-12"
+            variant="primary"
+            onClick={copy}
+            disabled={!noSpacesString.length ? true : false}
+          >
+            Copy
+          </Button>
+          {copied && <p>Text copied</p>}
         </Col>
       </Row>
     </Container>
