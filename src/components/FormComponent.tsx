@@ -64,7 +64,7 @@ const FormComponent = () => {
           </Form>
         </Col>
       </Row>
-      <Row className="mt-4 ">
+      <Row className="mt-4">
         <Col sm={{ span: 8, offset: 2 }}>
           <p className=" border border-2 rounded text-break">
             {noSpacesString}
