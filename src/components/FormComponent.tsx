@@ -66,7 +66,9 @@ const FormComponent = () => {
       </Row>
       <Row className="mt-4 ">
         <Col sm={{ span: 8, offset: 2 }}>
-          <p className="square border border-2 rounded">{noSpacesString}</p>
+          <p className=" border border-2 rounded text-break">
+            {noSpacesString}
+          </p>
           <Button
             className="col-12"
             variant="primary"
