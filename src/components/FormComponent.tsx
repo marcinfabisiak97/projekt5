@@ -32,13 +32,13 @@ const FormComponent = () => {
             <Form.Group className="mt-5" controlId="controlTextarea1">
               <FloatingLabel
                 controlId="floatingTextarea2"
-                label="Please write only strings"
+                label="Please insert text for removing spaces"
               >
                 <Form.Control
                   value={textarea}
                   onChange={(event) => setTextarea(event.target.value)}
                   as="textarea"
-                  placeholder="Please insert string"
+                  placeholder="Please insert text for removing spaces"
                   style={{ height: "100px" }}
                   required
                 />
@@ -63,7 +63,7 @@ const FormComponent = () => {
       </Row>
       <Row className="mt-4">
         <Col sm={{ span: 8, offset: 2 }}>
-          <p className=" border border-2 rounded text-break">
+          <p role="outputtext" className=" border border-2 rounded text-break">
             {noSpacesString}
           </p>
           <Button
@@ -73,11 +73,11 @@ const FormComponent = () => {
               copy(noSpacesString);
               setCopied(true);
             }}
-            disabled={!noSpacesString.length ? true : false}
+            disabled={!noSpacesString}
           >
             Copy
           </Button>
-          {copied && <p>Text copied</p>}
+          {copied && <p data-testid="textCopied">Text copied</p>}
         </Col>
       </Row>
     </Container>
