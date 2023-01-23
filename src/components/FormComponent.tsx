@@ -29,10 +29,7 @@ const FormComponent = () => {
       <Row>
         <Col sm={{ span: 8, offset: 2 }}>
           <Form onSubmit={handleSubmit} className="d-grid gap-3 ">
-            <Form.Group
-              className="mt-5"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <Form.Group className="mt-5" controlId="controlTextarea1">
               <FloatingLabel
                 controlId="floatingTextarea2"
                 label="Please write only strings"

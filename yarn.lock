@@ -5676,6 +5676,11 @@ jest-message-util@^29.3.1:
     slash "^3.0.0"
     stack-utils "^2.0.3"
 
+jest-mock-object@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/jest-mock-object/-/jest-mock-object-2.1.2.tgz#65f30bb4f68cf03d05a069dbcb9e494eb733702c"
+  integrity sha512-H+IAWkiil+jnAl+KRIhKEgyIEIXug49OtcTk00J1qq+Hq9A8l0YKQGPNa12TX/8EtP/tiioPQuz7mgDC0/LilQ==
+
 jest-mock@^27.5.1:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-27.5.1.tgz#19948336d49ef4d9c52021d34ac7b5f36ff967d6"
